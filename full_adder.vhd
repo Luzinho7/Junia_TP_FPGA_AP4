@@ -8,15 +8,18 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 -- DESCRIPTION DES ENTREES/SORTIES DE L'ENTITY
-entity full_additionneur is
+entity full_adder is
     port (
          A : in std_logic;
          B : in std_logic;
-         Cin : in std_logic
+         Cin : in std_logic;
          S : out std_logic;
          Cout : out std_logic
     );
-end full_additionneur;
+end full_adder;
+
+
+architecture behavioral of full_adder is
 
 signal S1, C1, C2 : std_logic;
 
