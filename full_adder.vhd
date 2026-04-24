@@ -21,18 +21,27 @@ end full_adder;
 
 architecture behavioral of full_adder is
 
-signal S1, C1, C2 : std_logic;
+signal S1,S2,C1, C2 : std_logic;
 
 begin
     -- Premier demi-additionneur
-    S1 <= A xor B;
-    C1 <= A and B;
+    half_adder1: entity work.demi_additionneur port map(
+        A => A,
+        B => B,
+        S => S1,
+        C => C1
+    );
 
     -- Deuxième demi-additionneur
-    S <= S1 xor Cin;
-    C2 <= S1 and Cin;
+    half_adder2: entity work.demi_additionneur port map(
+        A => S1,
+        B => CIN,
+        S => S2,
+        C => C2
+    );
 
     -- Calcul de la retenue finale
+    S <= S2 ;
     Cout <= C1 or C2;
 
 end behavioral;
