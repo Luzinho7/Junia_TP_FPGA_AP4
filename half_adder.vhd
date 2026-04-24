@@ -1,6 +1,9 @@
 -- Exercices 2.a.1 --
 -- Les opérations logiques permettant de calculer S et C en fonction de A et B sont XOR pour la somme entre A et B et AND pour la retenue entre A et B. 
 
+--Librairies
+
+
 library ieee ;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
