@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition"
 
--- DATE "04/24/2026 12:11:34"
+-- DATE "04/29/2026 08:58:28"
 
 -- 
 -- Device: Altera 5CGXFC5C6F27C7 Package FBGA672
@@ -39,8 +39,8 @@ ENTITY 	full_adder IS
 	A : IN std_logic;
 	B : IN std_logic;
 	Cin : IN std_logic;
-	S : OUT std_logic;
-	Cout : OUT std_logic
+	S : BUFFER std_logic;
+	Cout : BUFFER std_logic
 	);
 END full_adder;
 
