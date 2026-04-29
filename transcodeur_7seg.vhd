@@ -7,7 +7,7 @@ use IEEE.numeric_std.all;
 entity transcodeur_7seg is
     port (
         BIN : in std_logic_vector(3 downto 0);
-        SEG : out std_logic_vector(6 downto 0);
+        SEG : out std_logic_vector(6 downto 0)
 
     );
 end transcodeur_7seg;
@@ -28,7 +28,7 @@ begin
             when "0100" => 
             SEG <= "0011001"; -- 4
             when "0101" => 
-            SEG <= "00100100"; -- 5
+            SEG <= "0010010"; -- 5
             when "0110" => 
             SEG <= "0000010"; -- 6
             when "0111" => 

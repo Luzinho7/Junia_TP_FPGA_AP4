@@ -12,12 +12,12 @@ end entity;
 
 architecture behavioral of toplevel is
 
-    component adder_4bit is
+    component full_adder_4b is
         port (
             A    : in  std_logic_vector(3 downto 0);
             B    : in  std_logic_vector(3 downto 0);
             Cin  : in  std_logic;
-            Sum  : out std_logic_vector(3 downto 0);
+            S  : out std_logic_vector(3 downto 0);
             Cout : out std_logic
         );
     end component;
@@ -34,12 +34,12 @@ architecture behavioral of toplevel is
 
 begin
 
-    U_ADDER : adder_4bit
+    U_ADDER : full_adder_4b
         port map (
             A    => SW(3 downto 0),
             B    => SW(7 downto 4),
             Cin  => SW(9),
-            Sum  => sum_result,
+            S  => sum_result,
             Cout => cout_unused
         );
 
