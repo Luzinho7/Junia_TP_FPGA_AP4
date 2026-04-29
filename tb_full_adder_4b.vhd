@@ -18,7 +18,7 @@ architecture tb of tb_full_adder_4b is
     signal Cout : std_logic;
 
 begin
-    UUT : entity work.Full_additionneur_4bits 
+    UUT : entity work.full_adder_4b 
         port map (A => A, B => B, Cin => Cin, S => S, Cout => Cout);
 
     stimuli : process
