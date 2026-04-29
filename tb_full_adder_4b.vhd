@@ -6,10 +6,10 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity tb_Full_additionneur_4bits is
-end tb_Full_additionneur_4bits;
+entity tb_full_adder_4b is
+end tb_full_adder_4b;
 
-architecture tb of tb_Full_additionneur_4bits is
+architecture tb of tb_full_adder_4b is
 
     signal A   : std_logic_vector(3 downto 0) := "0000";
     signal B   : std_logic_vector(3 downto 0) := "0000";
