@@ -52,4 +52,7 @@ begin
             S => S(3),
             Cout => C(3)
         );
+
+    Cout <= C(3);
+
 end Behavioral;
