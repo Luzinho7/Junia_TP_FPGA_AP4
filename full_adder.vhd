@@ -35,7 +35,7 @@ begin
     -- Deuxième demi-additionneur
     half_adder2: entity work.demi_additionneur port map(
         A => S1,
-        B => CIN,
+        B => Cin,
         S => S2,
         C => C2
     );
