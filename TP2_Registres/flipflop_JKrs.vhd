@@ -1,16 +1,3 @@
--- I.a.2 Rappel du fonctionnelment de la bascule JK avec entrées asynchrones
-
--- Table caractéristique :
--- +------+------+-----+---+---++----+-----+
--- | SETn | RSTn | CLK | J | K  Q+ | Qn+ |
--- +------+------+-----+---+---++----+-----+
--- |  0   |  1   |  X  | X | X | 1  |  0  |  SET asynchrone
--- |  1   |  0   |  X  | X | X | 0  |  1  |  RESET asynchrone
--- |  1   |  1   |  ^  | 0 | 0 | Q  |  Qn |  Mémorisation
--- |  1   |  1   |  ^  | 0 | 1 | 0  |  1  |  Reset
--- |  1   |  1   |  ^  | 1 | 0 | 1  |  0  |  Set
--- |  1   |  1   |  ^  | 1 | 1 | Qn	|  Q  |	 Toggle
--- +------+------+-----+---+---++----+-----+
 
 library IEEE;
 use IEEE.std_logic_1164.all;

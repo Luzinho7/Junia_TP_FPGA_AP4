@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed Apr 29 11:41:34 2026
+Analysis & Synthesis Status : Successful - Wed Apr 29 12:07:24 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : TP2_Registres
-Top-level Entity Name : baseline_c5gx
+Top-level Entity Name : flipflop_JKrs
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 236
+Total registers : 1
+Total pins : 7
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
