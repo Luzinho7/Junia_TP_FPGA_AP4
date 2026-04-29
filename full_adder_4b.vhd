@@ -28,7 +28,7 @@ begin
             S => S(0),
             Cout => C(0)
         );
-    Full_add2: entity work.full_adder
+    full_add2: entity work.full_adder
         port map (
             A => A(1),
             B => B(1),
@@ -36,7 +36,7 @@ begin
             S => S(1),
             Cout => C(1)
         );
-    Full_add3: entity work.full_adder
+    full_add3: entity work.full_adder
         port map (
             A => A(2),
             B => B(2),
@@ -44,7 +44,7 @@ begin
             S => S(2),
             Cout => C(2)
         );
-    Full_add4: entity work.full_adder
+    full_add4: entity work.full_adder
         port map (
             A => A(3),
             B => B(3),

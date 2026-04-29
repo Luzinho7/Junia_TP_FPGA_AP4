@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition"
 
--- DATE "04/29/2026 09:46:44"
+-- DATE "04/29/2026 10:11:35"
 
 -- 
 -- Device: Altera 5CGXFC5C6F27C7 Package FBGA672
@@ -39,8 +39,8 @@ ENTITY 	full_adder_4b IS
 	A : IN std_logic_vector(3 DOWNTO 0);
 	B : IN std_logic_vector(3 DOWNTO 0);
 	Cin : IN std_logic;
-	S : OUT std_logic_vector(3 DOWNTO 0);
-	Cout : OUT std_logic
+	S : BUFFER std_logic_vector(3 DOWNTO 0);
+	Cout : BUFFER std_logic
 	);
 END full_adder_4b;
 
@@ -91,16 +91,16 @@ SIGNAL \Full_add3|half_adder2|S~combout\ : std_logic;
 SIGNAL \A[3]~input_o\ : std_logic;
 SIGNAL \B[3]~input_o\ : std_logic;
 SIGNAL \Full_add4|half_adder2|S~combout\ : std_logic;
+SIGNAL \ALT_INV_B[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_A[0]~input_o\ : std_logic;
+SIGNAL \Full_add2|ALT_INV_Cout~combout\ : std_logic;
+SIGNAL \ALT_INV_A[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_A[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_B[1]~input_o\ : std_logic;
+SIGNAL \ALT_INV_B[3]~input_o\ : std_logic;
 SIGNAL \ALT_INV_A[1]~input_o\ : std_logic;
 SIGNAL \ALT_INV_Cin~input_o\ : std_logic;
-SIGNAL \ALT_INV_A[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_A[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_B[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_B[3]~input_o\ : std_logic;
-SIGNAL \Full_add2|ALT_INV_Cout~combout\ : std_logic;
-SIGNAL \ALT_INV_A[3]~input_o\ : std_logic;
 SIGNAL \ALT_INV_B[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_B[1]~input_o\ : std_logic;
 
 BEGIN
 
@@ -112,16 +112,16 @@ Cout <= ww_Cout;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
+\ALT_INV_B[2]~input_o\ <= NOT \B[2]~input_o\;
+\ALT_INV_A[0]~input_o\ <= NOT \A[0]~input_o\;
+\Full_add2|ALT_INV_Cout~combout\ <= NOT \Full_add2|Cout~combout\;
+\ALT_INV_A[2]~input_o\ <= NOT \A[2]~input_o\;
+\ALT_INV_A[3]~input_o\ <= NOT \A[3]~input_o\;
+\ALT_INV_B[1]~input_o\ <= NOT \B[1]~input_o\;
+\ALT_INV_B[3]~input_o\ <= NOT \B[3]~input_o\;
 \ALT_INV_A[1]~input_o\ <= NOT \A[1]~input_o\;
 \ALT_INV_Cin~input_o\ <= NOT \Cin~input_o\;
-\ALT_INV_A[0]~input_o\ <= NOT \A[0]~input_o\;
-\ALT_INV_A[2]~input_o\ <= NOT \A[2]~input_o\;
-\ALT_INV_B[2]~input_o\ <= NOT \B[2]~input_o\;
-\ALT_INV_B[3]~input_o\ <= NOT \B[3]~input_o\;
-\Full_add2|ALT_INV_Cout~combout\ <= NOT \Full_add2|Cout~combout\;
-\ALT_INV_A[3]~input_o\ <= NOT \A[3]~input_o\;
 \ALT_INV_B[0]~input_o\ <= NOT \B[0]~input_o\;
-\ALT_INV_B[1]~input_o\ <= NOT \B[1]~input_o\;
 
 -- Location: IOOBUF_X68_Y11_N56
 \S[0]~output\ : cyclonev_io_obuf

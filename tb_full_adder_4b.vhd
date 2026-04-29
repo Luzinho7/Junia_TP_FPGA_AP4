@@ -22,7 +22,7 @@ begin
         port map (A => A, B => B, Cin => Cin, S => S, Cout => Cout);
 
     Count_A : process
-		  begin
+    begin
 
         -- CAS 1 : 0 + 0 + 0 = 0
         A <= "0000"; B <= "0000"; Cin <= '0';
@@ -48,76 +48,76 @@ begin
         assert S = "0110" report "Error in test case #4 : S" severity error;
         assert Cout = '0'  report "Error in test case #4 : Cout" severity error;
 
-        -- CAS 5 : 4 + 4 + 0 = 8 → Cout=1, S=0
+        -- CAS 5 : 4 + 4 + 0 = 8
         A <= "0100"; B <= "0100"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #5 : S" severity error;
-        assert Cout = '1'  report "Error in test case #5 : Cout" severity error;
+        assert S = "1000" report "Error in test case #5 : S" severity error;
+        assert Cout = '0'  report "Error in test case #5 : Cout" severity error;
 
-        -- CAS 6 : 5 + 5 + 0 = 10 → Cout=1, S=10
+        -- CAS 6 : 5 + 5 + 0 = 10
         A <= "0101"; B <= "0101"; Cin <= '0';
         wait for 10 ns;
         assert S = "1010" report "Error in test case #6 : S" severity error;
-        assert Cout = '1'  report "Error in test case #6 : Cout" severity error;
+        assert Cout = '0'  report "Error in test case #6 : Cout" severity error;
 
-        -- CAS 7 : 6 + 6 + 0 = 12 → Cout=1, S=12
+        -- CAS 7 : 6 + 6 + 0 = 12
         A <= "0110"; B <= "0110"; Cin <= '0';
         wait for 10 ns;
         assert S = "1100" report "Error in test case #7 : S" severity error;
-        assert Cout = '1'  report "Error in test case #7 : Cout" severity error;
+        assert Cout = '0'  report "Error in test case #7 : Cout" severity error;
 
-        -- CAS 8 : 7 + 7 + 0 = 15
+        -- CAS 8 : 7 + 7 + 0 = 14
         A <= "0111"; B <= "0111"; Cin <= '0';
         wait for 10 ns;
-        assert S = "1111" report "Error in test case #8 : S" severity error;
+        assert S = "1110" report "Error in test case #8 : S" severity error;
         assert Cout = '0'  report "Error in test case #8 : Cout" severity error;
 
-        -- CAS 9 : 8 + 8 + 0 = 16
+        -- CAS 9 : 8 + 8 + 0 = 16 → Cout=1, S=0
         A <= "1000"; B <= "1000"; Cin <= '0';
         wait for 10 ns;
         assert S = "0000" report "Error in test case #9 : S" severity error;
         assert Cout = '1'  report "Error in test case #9 : Cout" severity error;
 
-        -- CAS 10 : 9 + 9 + 0 = 18 
+        -- CAS 10 : 9 + 9 + 0 = 18 → Cout=1, S=2
         A <= "1001"; B <= "1001"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #10 : S" severity error;
+        assert S = "0010" report "Error in test case #10 : S" severity error;
         assert Cout = '1'  report "Error in test case #10 : Cout" severity error;
 
-        -- CAS 11 : 10 + 10 + 0 = 20
+        -- CAS 11 : 10 + 10 + 0 = 20 → Cout=1, S=4
         A <= "1010"; B <= "1010"; Cin <= '0';
         wait for 10 ns;
         assert S = "0100" report "Error in test case #11 : S" severity error;
         assert Cout = '1'  report "Error in test case #11 : Cout" severity error;
 
-        -- CAS 12 : 11 + 11 + 0 = 16 → Cout=1, S=0
+        -- CAS 12 : 11 + 11 + 0 = 22 → Cout=1, S=6
         A <= "1011"; B <= "1011"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #12 : S" severity error;
+        assert S = "0110" report "Error in test case #12 : S" severity error;
         assert Cout = '1'  report "Error in test case #12 : Cout" severity error;
 
-        -- CAS 13 : 12 + 12 + 0 = 8
+        -- CAS 13 : 12 + 12 + 0 = 24 → Cout=1, S=8
         A <= "1100"; B <= "1100"; Cin <= '0';
         wait for 10 ns;
         assert S = "1000" report "Error in test case #13 : S" severity error;
-        assert Cout = '0'  report "Error in test case #13 : Cout" severity error;
+        assert Cout = '1'  report "Error in test case #13 : Cout" severity error;
 
-        -- CAS 14 : 13 + 13 + 0 = 16
+        -- CAS 14 : 13 + 13 + 0 = 26 → Cout=1, S=10
         A <= "1101"; B <= "1101"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #14 : S" severity error;
+        assert S = "1010" report "Error in test case #14 : S" severity error;
         assert Cout = '1'  report "Error in test case #14 : Cout" severity error;
 
-        -- CAS 15 : 14 + 14 + 0 = 16 
+        -- CAS 15 : 14 + 14 + 0 = 28 → Cout=1, S=12
         A <= "1110"; B <= "1110"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #15 : S" severity error;
+        assert S = "1100" report "Error in test case #15 : S" severity error;
         assert Cout = '1'  report "Error in test case #15 : Cout" severity error;
-         
-        -- CAS 16 : 15 + 15 + 0 = 16 
+
+        -- CAS 16 : 15 + 15 + 0 = 30 → Cout=1, S=14
         A <= "1111"; B <= "1111"; Cin <= '0';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #16 : S" severity error;
+        assert S = "1110" report "Error in test case #16 : S" severity error;
         assert Cout = '1'  report "Error in test case #16 : Cout" severity error;
 
         -- CAS 17 : 0 + 0 + 1 = 1
@@ -144,23 +144,23 @@ begin
         assert S = "0111" report "Error in test case #20 : S" severity error;
         assert Cout = '0'  report "Error in test case #20 : Cout" severity error;
 
-        -- CAS 21 : 4 + 4 + 1 = 9 → Cout=1, S=1
+        -- CAS 21 : 4 + 4 + 1 = 9
         A <= "0100"; B <= "0100"; Cin <= '1';
         wait for 10 ns;
-        assert S = "0001" report "Error in test case #21 : S" severity error;
-        assert Cout = '1'  report "Error in test case #21 : Cout" severity error;
+        assert S = "1001" report "Error in test case #21 : S" severity error;
+        assert Cout = '0'  report "Error in test case #21 : Cout" severity error;
 
-        -- CAS 22 : 5 + 5 + 1 = 11 → Cout=1, S=11
+        -- CAS 22 : 5 + 5 + 1 = 11
         A <= "0101"; B <= "0101"; Cin <= '1';
         wait for 10 ns;
         assert S = "1011" report "Error in test case #22 : S" severity error;
-        assert Cout = '1'  report "Error in test case #22 : Cout" severity error;
+        assert Cout = '0'  report "Error in test case #22 : Cout" severity error;
 
-        -- CAS 23 : 6 + 6 + 1 = 13 → Cout=1, S=13
+        -- CAS 23 : 6 + 6 + 1 = 13
         A <= "0110"; B <= "0110"; Cin <= '1';
         wait for 10 ns;
         assert S = "1101" report "Error in test case #23 : S" severity error;
-        assert Cout = '1'  report "Error in test case #23 : Cout" severity error;
+        assert Cout = '0'  report "Error in test case #23 : Cout" severity error;
 
         -- CAS 24 : 7 + 7 + 1 = 15
         A <= "0111"; B <= "0111"; Cin <= '1';
@@ -168,54 +168,53 @@ begin
         assert S = "1111" report "Error in test case #24 : S" severity error;
         assert Cout = '0'  report "Error in test case #24 : Cout" severity error;
 
-        -- CAS 25 : 8 + 8 + 1 = 17
+        -- CAS 25 : 8 + 8 + 1 = 17 → Cout=1, S=1
         A <= "1000"; B <= "1000"; Cin <= '1';
         wait for 10 ns;
         assert S = "0001" report "Error in test case #25 : S" severity error;
         assert Cout = '1'  report "Error in test case #25 : Cout" severity error;
 
-        -- CAS 26 : 9 + 9 + 1 = 19
+        -- CAS 26 : 9 + 9 + 1 = 19 → Cout=1, S=3
         A <= "1001"; B <= "1001"; Cin <= '1';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #26 : S" severity error;
+        assert S = "0011" report "Error in test case #26 : S" severity error;
         assert Cout = '1'  report "Error in test case #26 : Cout" severity error;
 
-        -- CAS 27 : 10 + 10 + 1 = 21
+        -- CAS 27 : 10 + 10 + 1 = 21 → Cout=1, S=5
         A <= "1010"; B <= "1010"; Cin <= '1';
         wait for 10 ns;
         assert S = "0101" report "Error in test case #27 : S" severity error;
         assert Cout = '1'  report "Error in test case #27 : Cout" severity error;
 
-        -- CAS 28 : 11 + 11 + 1 = 23
+        -- CAS 28 : 11 + 11 + 1 = 23 → Cout=1, S=7
         A <= "1011"; B <= "1011"; Cin <= '1';
         wait for 10 ns;
-        assert S = "1011" report "Error in test case #28 : S" severity error;
+        assert S = "0111" report "Error in test case #28 : S" severity error;
         assert Cout = '1'  report "Error in test case #28 : Cout" severity error;
 
-        -- CAS 29 : 12 + 12 + 1 = 8
+        -- CAS 29 : 12 + 12 + 1 = 25 → Cout=1, S=9
         A <= "1100"; B <= "1100"; Cin <= '1';
         wait for 10 ns;
-        assert S = "1000" report "Error in test case #29 : S" severity error;
-        assert Cout = '0'  report "Error in test case #29 : Cout" severity error;
+        assert S = "1001" report "Error in test case #29 : S" severity error;
+        assert Cout = '1'  report "Error in test case #29 : Cout" severity error;
 
-        -- CAS 30 : 13 + 13 + 1 = 16
+        -- CAS 30 : 13 + 13 + 1 = 27 → Cout=1, S=11
         A <= "1101"; B <= "1101"; Cin <= '1';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #30 : S" severity error;
+        assert S = "1011" report "Error in test case #30 : S" severity error;
         assert Cout = '1'  report "Error in test case #30 : Cout" severity error;
 
-        -- CAS 31 : 14 + 14 + 1 = 16 
+        -- CAS 31 : 14 + 14 + 1 = 29 → Cout=1, S=13
         A <= "1110"; B <= "1110"; Cin <= '1';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #31 : S" severity error;
+        assert S = "1101" report "Error in test case #31 : S" severity error;
         assert Cout = '1'  report "Error in test case #31 : Cout" severity error;
-         
-        -- CAS 32 : 15 + 15 + 1 = 16 
+
+        -- CAS 32 : 15 + 15 + 1 = 31 → Cout=1, S=15
         A <= "1111"; B <= "1111"; Cin <= '1';
         wait for 10 ns;
-        assert S = "0000" report "Error in test case #32 : S" severity error;
+        assert S = "1111" report "Error in test case #32 : S" severity error;
         assert Cout = '1'  report "Error in test case #32 : Cout" severity error;
-
 
         wait;
     end process;
