@@ -7,7 +7,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity Full_additionneur_4bits is
+entity full_adder_4b is
     port (
         A : in std_logic_vector(3 downto 0);
         B : in std_logic_vector(3 downto 0);
@@ -15,9 +15,9 @@ entity Full_additionneur_4bits is
         S : out std_logic_vector(3 downto 0);
         Cout : out std_logic
     );
-end Full_additionneur_4bits;
+end full_adder_4b;
 
-architecture Behavioral of Full_additionneur_4bits is
+architecture Behavioral of full_adder_4b is
     signal C : std_logic_vector(3 downto 0);
 begin
     full_add: entity work.full_adder

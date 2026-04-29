@@ -18,11 +18,11 @@ architecture tb of tb_full_adder_4b is
     signal Cout : std_logic;
 
 begin
-    UUT : entity work.full_adder_4b 
+    uut : entity work.full_adder_4b 
         port map (A => A, B => B, Cin => Cin, S => S, Cout => Cout);
 
-    stimuli : process
-    begin
+    Count_A : process
+		  begin
 
         -- CAS 1 : 0 + 0 + 0 = 0
         A <= "0000"; B <= "0000"; Cin <= '0';
